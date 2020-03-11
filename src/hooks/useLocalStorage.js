@@ -7,13 +7,16 @@ export const useLocalStorage = (key,initialValue) => {
         // if localsstorage is undefined, return initial value. Otherwise parse and return stored json
         return item ? JSON.parse(item) : initialValue;
     });
-    return [storedValue];
-};//end useLocalStorage
-
-//setter function
-const setValue = value => {
+    
+   //setter function
+    const setValue = value => {
     //save the state
     setStoredValue(value);
     //save it to local storage
     window.localStorage.setItem(key, JSON.stringify(value));
 };
+return [storedValue];
+};//end useLocalStorage
+
+export default useLocalStorage;
+
